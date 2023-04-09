@@ -1,11 +1,11 @@
 .main_container {
     margin-left: 20%;
-    background-color: rgba(0, 0, 0, 0.1);
     width: 70%;
     height: 500px;
     padding: 25px;
     text-align: center;
     align-items: center;
+    background-color: red;
 }
 
 textarea {
