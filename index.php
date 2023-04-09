@@ -41,7 +41,7 @@
                     }
                 ?>
             </select>
-            <button style="padding: 10px; width: 200px; font-size: 20px; margin-left: 30px;" class="butao_index" type="submit" name="novo_dia">Enviar</button>
+            <button class="butao_index" type="submit" name="novo_dia">Enviar</button>
         </form>
     </body>
 </html>
