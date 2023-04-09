@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="/fruit_hunter/css/style.css">
         <style>
             body {
-                /* Remova as propriedades de centralização aqui */
+            /* Remova as propriedades de centralização aqui */
             }
 
             .wrapper {
@@ -35,33 +35,44 @@
             }
 
             .sidebar {
-                /* Estilos para a barra lateral do menu */
+            /* Estilos para a barra lateral do menu */
             }
 
             .content {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                flex-direction: row;
+                flex-direction: column;
                 border: 1px solid #000;
                 padding: 20px;
             }
 
-            select, .enviar {
+            h1 {
+                margin-top: 0px;
+                text-align: center;
+                font-size: 50px;
+            }
+
+            .input-group {
+                display: flex;
+                align-items: center;
+            }
+
+            select, button.enviar {
                 margin: 20px;
                 padding: 10px;
                 font-size: 16px;
             }
 
-            .enviar {
+            button.enviar {
                 background-color: #000;
                 color: #fff;
                 border: none;
                 cursor: pointer;
-                width: 150px;
+                width: 150px;   
             }
 
-            .enviar:hover {
+            button.enviar:hover {
                 background-color: gray;
             }
 
@@ -72,9 +83,8 @@
                 margin-left: 15px;
                 text-align: center;
                 font-weight: bold;
-                font-size: 17px;
+                font-size: 16px;
             }
-
 
         </style>
     </head>
@@ -87,18 +97,21 @@
                 <!-- Envia a fruta para o tratamento -->
                 <form action="app/Controller/form/tratamento.php" method="post">
                     <div class="content">
-                        <select class="selecionar" name="fruta">
-                            <?php
-                                if ($result->num_rows > 0)
-                                {
-                                    while($row = $result->fetch_assoc())
+                        <h1>GPO: Fruit Hunter</h1>
+                        <div class="input-group">
+                            <select class="selecionar" name="fruta">
+                                <?php
+                                    if ($result->num_rows > 0)
                                     {
-                                        echo "<option>".$row['nome']. "</option>";
+                                        while($row = $result->fetch_assoc())
+                                        {
+                                            echo "<option>".$row['nome']. "</option>";
+                                        }
                                     }
-                                }
-                            ?>
-                        </select>
-                        <button class="enviar" type="submit" name="novo_dia">Enviar</button>
+                                ?>
+                            </select>
+                            <button class="enviar" type="submit" name="novo_dia">Enviar</button>
+                        </div>
                     </div>
                 </form>
             </div>
