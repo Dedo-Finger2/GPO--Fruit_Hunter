@@ -20,7 +20,6 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="/fruit_hunter/css/style.css">
         <style>
             body {
             /* Remova as propriedades de centralização aqui */

@@ -21,16 +21,81 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="/fruit_hunter/css/style.css">
+       
+        <style>
+            body {
+            /* Remova as propriedades de centralização aqui */
+            }
+
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                margin-left: 15rem;
+                align-items: center;
+                height: 93vh;
+            }
+
+            .side-bar {
+                
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #000;
+                padding: 20px;
+                width: 89rem;
+            }
+
+            h2 {
+                text-align: center;
+                margin-right: 3rem;
+            }
+
+            input.dia, button.enviar {
+                margin: 10px;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            button.enviar {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                width: 150px;
+            }
+
+            button.enviar:hover {
+                background-color: gray;
+            }
+
+            .dia, textarea {
+                border: 1px solid #000;
+                width: 500px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+
+        </style>
 </head>
 
-<?php require_once("../menu.php") ?>
-
-<div class="main_container">
-    <form action="../../Controller/form/tratamento.php" method="post">
-        <h2> TEM CERTEZA QUE QUER DELETAR O DIA <?= $row['data'] ?> DO BANCO DE DADOS?</h2>
-        <input type="hidden" name="delete_id_dia" value="<?= $row['id'] ?>">
-        <br><br>
-        <button style="padding: 10px; width: 200px; font-size: 20px;" type="submit" name="deleted">Deletar</button>
-    </form>
-</div>
+<body>
+    <div class="side-bar">
+        <?php require_once("../menu.php") ?>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <h2> TEM CERTEZA QUE QUER DELETAR O DIA: <b><?= $row['data'] ?></b> DO BANCO DE DADOS?</h2>
+            <form action="../../Controller/form/tratamento.php" method="post">
+                <input class="dia" type="hidden" name="delete_id_dia" value="<?= $row['id'] ?>">
+                <br><br>
+                <button class="enviar" type="submit" name="deleted">Deletar</button>
+            </form>
+        </div>
+    </div>
+</body>

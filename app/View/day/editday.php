@@ -5,6 +5,12 @@
 
     $sql = $conn->query("SELECT * FROM day WHERE id=$id");
     $row = $sql->fetch_assoc();
+
+    $lista = $row['frutas'];
+    $array = explode(",", $lista);
+    $array = array_filter($array);
+
+
 ?>
 
 <head>
@@ -21,18 +27,111 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="/fruit_hunter/css/style.css">
+        
+        <style>
+            body {
+            /* Remova as propriedades de centralização aqui */
+            }
+
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                margin-left: 15rem;
+                align-items: center;
+                height: 93vh;
+            }
+
+            .side-bar {
+                width: 100%;
+            }
+
+            .content {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #000;
+                padding: 20px;
+                margin-right: 6rem;
+                width: 89rem;
+                height: 800px;
+            }
+
+            h2 {
+                text-align: center;
+                margin-right: 3rem;
+            }
+
+            .form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                margin-left: 30px;
+                text-align: center;
+            }
+
+            input, textarea, button.enviar {
+                margin: 10px;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            button.enviar {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                width: 150px;
+            }
+
+            button.enviar:hover {
+                background-color: gray;
+            }
+
+            input, textarea {
+                border: 1px solid #000;
+                width: 500px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+            textarea {
+                height: 15rem;
+            }
+
+            .fruta {
+                text-align: center;
+                font-size: 20px;
+                margin-bottom: 5px;
+            }
+
+        </style>
 </head>
-
-<?php require_once("../menu.php") ?>
-
-<div class="main_container">
-    <form action="../../Controller/form/tratamento.php" method="post">
-        <h2> VOCÊ ESTÁ EDITANDO O DIA: <?= $row['data'] ?> COM AS FRUTAS: <?= $row['frutas'] ?></h2>
-        <b>Data:</b> <br><input type="text" name="new_day_data" value="<?= $row['data'] ?>"><br><br>
-        <b>Frutas:</b> <br><textarea name="new_frutas"><?= $row['frutas'] ?></textarea>
-        <input type="hidden" name="edit_id_dia" value="<?= $row['id'] ?>">
-        <br><br>
-        <button style="padding: 10px; width: 200px; font-size: 20px;" type="submit" name="edited">EDIT</button>
-    </form>
-</div>
+<body>
+    <div class="side-bar">
+        <?php require_once("../menu.php") ?>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <h2>EDITANDO O DIA: <b><?= $row['data'] ?></b> COM AS FRUTAS: 
+            <b><?php  
+                    foreach($array as $item)
+                    {
+                        echo "<p class='fruta'>- $item</p>";
+                    }
+                ?>
+            </b></h2>
+            <div class="form">
+                <form action="../../Controller/form/tratamento.php" method="post">
+                    <b>Data:</b> <br><input class="data" type="text" name="new_day_data" value="<?= $row['data'] ?>"><br><br>
+                    <b>Frutas:</b> <br><textarea name="new_frutas"><?= $row['frutas'] ?></textarea>
+                    <input type="hidden" name="edit_id_dia" value="<?= $row['id'] ?>">
+                    <br><br>
+                    <button class="enviar" type="submit" name="edited">EDIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
