@@ -1,32 +1,58 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Remova as propriedades de centralização aqui */
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  border: 1px solid #000;
-  padding: 20px;
+.wrapper {
+    display: flex;
+    justify-content: center;
+    margin-left: 15rem;
+    align-items: center;
+    height: 93vh;
 }
 
-input, button {
-  margin: 10px;
+.side-bar {
+    
 }
 
-button {
-  background-color: #000;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 20px;
+    width: 89rem;
 }
 
-input {
-  padding: 10px;
-  border: 1px solid #000;
+h2 {
+    text-align: center;
+    margin-right: 3rem;
 }
+
+input.dia, button.enviar {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button.enviar {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 150px;
+}
+
+button.enviar:hover {
+    background-color: gray;
+}
+
+.dia, textarea {
+    border: 1px solid #000;
+    width: 500px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
