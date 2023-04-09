@@ -21,6 +21,9 @@
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
         <link rel="stylesheet" href="/fruit_hunter/css/style.css">
+        <style>
+
+        </style>
     </head>
     <body>
         
@@ -28,7 +31,7 @@
 
         <!-- Envia a fruta para o tratamento -->
         <form action="app/Controller/form/tratamento.php" method="post">
-            <div class="main_container">
+            <div class="container">
                 <select class="butao_index" style="width: 200px; padding: 10px; font-size: 20px;" name="fruta">
             </div>
                 <?php
