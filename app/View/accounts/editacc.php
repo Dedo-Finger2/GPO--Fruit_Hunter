@@ -109,7 +109,8 @@
                 <div class="inputs">
                     <b>Nome:</b> <br><input class="#" type="text" name="acc_nome" value="<?= $row['nome']?>"><br>
                     <b>Level:</b> <br><input class="#" type="text" name="acc_level" value="<?= $row['level'] ?>"><br>
-                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins" value="<?= $row['spins'] ?>" ><br><br>
+                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins" value="<?= $row['spins'] ?>" ><br>
+                    <b>Bounty:</b> <br><input class="#" type="text" name="acc_bounty" value="<?= $row['bounty'] ?>" ><br><br>
                 </div>
                 <hr>
                 <b>Raça:</b> <br><select class="dia" name="acc_raca">
@@ -119,22 +120,14 @@
                     <option <?php if ($row['raca'] == "Fishman") echo "selected"?>>Fishman</option>
                     <option <?php if ($row['raca'] == "Cyborg") echo "selected"?>>Cyborg</option>
                 </select>
-                <hr>
+                <br><br>
                 <b>Fruta atual:</b> <br><input class="dia" type="text" name="acc_fruta" value="<?= $row['atual_fruta'] ?>">
                 <hr>
                 <b>Items:</b><br>
-                <textarea style="height: 120px;" class="dia" name="acc_items">
-                    <?php
-                        echo $row['items_inv'];    
-                    ?>
-                </textarea>
+                <textarea style="height: 120px;" class="dia" name="acc_items"><?php echo $row['items_inv'];?></textarea>
                 <hr>
                 <b>Frutas:</b><br>
-                <textarea style="height: 120px;" class="dia" name="acc_frutas">
-                    <?php
-                        echo $row['frutas_inv']
-                    ?>
-                </textarea>
+                <textarea style="height: 120px;" class="dia" name="acc_frutas"><?php echo $row['frutas_inv']?></textarea>
                 <br><br>
                 <input type="hidden" name="acc_id" value="<?= $row['id'] ?>">
                 <button class="enviar" type="submit" name="edited_acc">EDIT</button>

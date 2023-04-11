@@ -44,11 +44,11 @@
         header("Location: ../../View/day/listday.php");
     } elseif (isset($nova_acc)) {
         $conta = new AccountController();
-        $conta->new_acc($acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta);
+        $conta->new_acc($acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta, $acc_bounty);
         header("Location: ../../View/accounts/listacc.php");
     } elseif (isset($edited_acc)) {
         $conta = new AccountController();
-        $conta->edit_acc($acc_id, $acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta);
+        $conta->edit_acc($acc_id, $acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta, $acc_bounty);
         header("Location: ../../View/accounts/listacc.php");
     } elseif (isset($deleted_acc)) {
         $conta = new AccountController();

@@ -108,7 +108,8 @@
                 <div class="inputs">
                     <b>Nome:</b> <br><input class="#" type="text" name="acc_nome"><br>
                     <b>Level:</b> <br><input class="#" type="text" name="acc_level"><br>
-                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins"><br><br>
+                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins"><br>
+                    <b>Bounty:</b> <br><input class="#" type="text" name="acc_bounty"><br><br>
                 </div>
                 <hr>
                 <b>Raça:</b> <br><select class="dia" name="acc_raca">

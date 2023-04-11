@@ -196,6 +196,7 @@
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
+                            <th>Bounty</th>
                             <th>Options</th>
                         </tr>
                     </thead>
@@ -213,6 +214,7 @@
                                     <td><?= $row['frutas_inv'] ?></td>
                                     <td><?= $row['spins'] ?></td>
                                     <td><?= $row['raca'] ?></td>
+                                    <td><?= $row['bounty'] ?></td>
                                     <td>
                                         <a href="deleteacc.php?id=<?= $row['id'] ?>">
                                             Delete
@@ -237,6 +239,7 @@
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
+                            <th>Bounty</th>
                             <th>Options</th>
                         </tr>
                     </tfoot>
