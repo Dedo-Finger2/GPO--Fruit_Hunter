@@ -3,8 +3,8 @@
     require_once("../../Model/conexao.php");
     $id = $_GET['id'];
 
-    $sql = $conn->query("SELECT * FROM account WHERE id=$id");
-
+    $result = $conn->query("SELECT * FROM account WHERE id=$id");
+    $row = $result->fetch_assoc();
 ?>
 
 <head>
@@ -107,57 +107,36 @@
         <div class="form">
             <form action="../../Controller/form/tratamento.php" method="post">
                 <div class="inputs">
-                    <b>Nome:</b> <br><input class="#" type="text" name="acc_nome"><br>
-                    <b>Level:</b> <br><input class="#" type="text" name="acc_level"><br>
-                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins"><br><br>
+                    <b>Nome:</b> <br><input class="#" type="text" name="acc_nome" value="<?= $row['nome']?>"><br>
+                    <b>Level:</b> <br><input class="#" type="text" name="acc_level" value="<?= $row['level'] ?>"><br>
+                    <b>Spins:</b> <br><input class="#" type="text" name="acc_spins" value="<?= $row['spins'] ?>" ><br><br>
                 </div>
                 <hr>
                 <b>Raça:</b> <br><select class="dia" name="acc_raca">
-                    <option>Human</option>
-                    <option>Skypean</option>
-                    <option>Mink</option>
-                    <option>Fishman</option>
-                    <option>Cyborg</option>
+                    <option <?php if ($row['raca'] == "Human") echo "selected"?>>Human</option>
+                    <option <?php if ($row['raca'] == "Skypean") echo "selected"?>>Skypean</option>
+                    <option <?php if ($row['raca'] == "Mink") echo "selected"?>>Mink</option>
+                    <option <?php if ($row['raca'] == "Fishman") echo "selected"?>>Fishman</option>
+                    <option <?php if ($row['raca'] == "Cyborg") echo "selected"?>>Cyborg</option>
                 </select>
                 <hr>
-                <b>Fruta atual:</b> <br><select class="dia" name="acc_fruta">
-                    <?php
-                            if ($result->num_rows > 0)
-                            {
-                                while($row = $result->fetch_assoc())
-                                {
-                                    echo "<option>".$row['nome']. "</option>";
-                                }
-                            }
-                    ?>
-                </select>
+                <b>Fruta atual:</b> <br><input class="dia" type="text" name="acc_fruta" value="<?= $row['atual_fruta'] ?>">
                 <hr>
                 <b>Items:</b><br>
                 <textarea style="height: 120px;" class="dia" name="acc_items">
                     <?php
-                        if ($items->num_rows > 0)
-                        {
-                            while($row = $items->fetch_assoc())
-                            {
-                                echo $row['items_inv'];
-                            }
-                        }
+                        echo $row['items_inv'];    
                     ?>
                 </textarea>
                 <hr>
                 <b>Frutas:</b><br>
                 <textarea style="height: 120px;" class="dia" name="acc_frutas">
                     <?php
-                        if ($items->num_rows > 0)
-                        {
-                            while($row = $items->fetch_assoc())
-                            {
-                                echo $row['frutas_inv'];
-                            }
-                        }
+                        echo $row['frutas_inv']
                     ?>
                 </textarea>
                 <br><br>
+                <input type="hidden" name="acc_id" value="<?= $row['id'] ?>">
                 <button class="enviar" type="submit" name="edited_acc">EDIT</button>
             </form>
         </div>

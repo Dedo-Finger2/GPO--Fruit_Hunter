@@ -39,7 +39,7 @@
             {
                 $result = mysqli_query($this->conexao, "UPDATE account SET 
                 nome = '$new_nome', level = '$new_level', raca = '$new_raca', spins = '$new_spins', 
-                frutas_inv = '$new_frutas_inv', items_inv = '$new_items_inv', fruta = '$new_fruta' 
+                frutas_inv = '$new_frutas_inv', items_inv = '$new_items_inv', atual_fruta = '$new_fruta' 
                 WHERE id = $id");
             }
 

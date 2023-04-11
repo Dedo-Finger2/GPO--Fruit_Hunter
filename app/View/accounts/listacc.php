@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GPO:FRUIT HUNTER</title>
+  <title>GPO: Fruit Hunter</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -293,21 +293,35 @@
 <script src="../../../assets/dist/js/demo.js"></script>
 <!-- Page specific script -->
 <script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
+	$(function () {
+		$("#example1").DataTable({
+			"responsive": true, "lengthChange": false, "autoWidth": false,
+			"buttons": 
+			[
+				{
+					"extend": "excel",
+					"filename": "GPO-FRUIT-HUNTER-ACC-LIST" 
+				},
+				{
+					"extend": "pdf",
+					"filename": "GPO-FRUIT-HUNTER-ACC-LIST" 
+				},
+				"copy", 
+				"csv", 
+				"print", 
+				"colvis"
+			]
+		}).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+		$('#example2').DataTable({
+			"paging": true,
+			"lengthChange": false,
+			"searching": false,
+			"ordering": true,
+			"info": true,
+			"autoWidth": false,
+			"responsive": true,
+		});
+	});
 </script>
 </body>
 </html>

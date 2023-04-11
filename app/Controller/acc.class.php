@@ -26,7 +26,8 @@
             {
                 if(isset($id))
                 {
-                    $this->delete($id);
+                    $deleted_acc = new Account();
+                    $deleted_acc->delete($id);
                 }
             }
 

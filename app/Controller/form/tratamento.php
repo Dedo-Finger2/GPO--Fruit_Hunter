@@ -46,7 +46,15 @@
         $conta = new AccountController();
         $conta->new_acc($acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta);
         header("Location: ../../View/accounts/listacc.php");
-    } elseif (isset())
+    } elseif (isset($edited_acc)) {
+        $conta = new AccountController();
+        $conta->edit_acc($acc_id, $acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta);
+        header("Location: ../../View/accounts/listacc.php");
+    } elseif (isset($deleted_acc)) {
+        $conta = new AccountController();
+        $conta->delete_acc($acc_id);
+        header("Location: ../../View/accounts/listacc.php");
+    }
 
     echo "ta passando";
 

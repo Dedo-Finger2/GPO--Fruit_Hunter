@@ -132,30 +132,10 @@
                 </select>
                 <hr>
                 <b>Items:</b><br>
-                <textarea style="height: 120px;" class="dia" name="acc_items">
-                    <?php
-                        if ($items->num_rows > 0)
-                        {
-                            while($row = $items->fetch_assoc())
-                            {
-                                echo $row['items_inv'];
-                            }
-                        }
-                    ?>
-                </textarea>
+                <textarea style="height: 120px;" class="dia" name="acc_items"></textarea>
                 <hr>
                 <b>Frutas:</b><br>
-                <textarea style="height: 120px;" class="dia" name="acc_frutas">
-                    <?php
-                        if ($items->num_rows > 0)
-                        {
-                            while($row = $items->fetch_assoc())
-                            {
-                                echo $row['frutas_inv'];
-                            }
-                        }
-                    ?>
-                </textarea>
+                <textarea style="height: 120px;" class="dia" name="acc_frutas"></textarea>
                 <br><br>
                 <button class="enviar" type="submit" name="nova_acc">Enviar</button>
             </form>

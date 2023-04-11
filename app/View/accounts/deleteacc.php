@@ -92,9 +92,9 @@
         <div class="content">
             <h2> TEM CERTEZA QUE QUER DELETAR A CONTA: <b><?= $row['nome'] ?></b> DO BANCO DE DADOS?</h2>
             <form action="../../Controller/form/tratamento.php" method="post">
-                <input class="dia" type="hidden" name="delete_id_dia" value="<?= $row['id'] ?>">
+                <input class="dia" type="hidden" name="acc_id" value="<?= $row['id'] ?>">
                 <br><br>
-                <button class="enviar" type="submit" name="deleted_acc">Deletar</button>
+                <button class="enviar" type="submit" name="deleted_acc">DELETAR</button>
             </form>
         </div>
     </div>
