@@ -21,16 +21,123 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
-        <link rel="stylesheet" href="/fruit_hunter/css/style.css">
+        <style>
+            body {
+            /* Remova as propriedades de centralização aqui */
+            }
+
+            .wrapper {
+                display: flex;
+                justify-content: center;
+                margin-left: 15rem;
+                align-items: center;
+                height: 93vh;
+            }
+
+            .side-bar {
+                
+            }
+
+            .content {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                border: 1px solid #000;
+                padding: 20px;
+                width: 89rem;
+            }
+
+            h2 {
+                text-align: center;
+                margin-right: 3rem;
+            }
+
+            input.dia, button.enviar {
+                margin: 10px;
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            button.enviar {
+                background-color: #000;
+                color: #fff;
+                border: none;
+                cursor: pointer;
+                width: 150px;
+            }
+
+            button.enviar:hover {
+                background-color: gray;
+            }
+
+            .dia, textarea {
+                border: 1px solid #000;
+                width: 500px;
+                text-align: center;
+                font-weight: bold;
+                font-size: 17px;
+            }
+
+            b.raridade-mythic {
+                background: linear-gradient(to right, #9d7fd3, #3c8dbc 25%, #ffffff 150%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            b.raridade-leg {
+                background: linear-gradient(to right, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #8B00FF);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            b.raridade-epic {
+                background: linear-gradient(to right, #6c3483 20%, #9b59b6 65%, #ffffff 150%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            b.raridade-rare {
+                background: linear-gradient(to right, #17a2b8, #38b8cc 65%, #ffffff 155%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            b.raridade-common {
+                background: linear-gradient(to right, #657383, #8695a8 65%, #ffffff 150%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+
+        </style>
 </head>
 
-<?php require_once("../menu.php") ?>
+    <div class="side-bar">
+        <?php require_once("../menu.php") ?>
+    </div>
 
-<div class="main_container">
-    <form action="../../Controller/form/tratamento.php" method="post">
-        <h2> TEM CERTEZA QUE QUER DELETAR A <?= $row['nome'] ?> DO BANCO DE DADOS?</h2>
-        <input type="hidden" name="delete_id_fruta" value="<?= $row['id'] ?>">
-        <br><br>
-        <button style="padding: 10px; width: 200px; font-size: 20px;" type="submit" name="deleted">Deletar</button>
-    </form>
+<div class="wrapper">
+    <div class="content">
+        <h2> TEM CERTEZA QUE QUER DELETAR A:
+            <?php 
+                if ($row['raridade'] == "Mythic") {
+                    echo "<b class='raridade-mythic'>". $row['nome']."</b>";
+                } elseif ($row['raridade'] == "Legendary") {
+                    echo "<b class='raridade-leg'>". $row['nome']."</b>";
+                } elseif ($row['raridade'] == "Epic") {
+                    echo "<b class='raridade-epic'>". $row['nome']."</b>";
+                } elseif ($row['raridade'] == "Rare") {
+                    echo "<b class='raridade-rare'>". $row['nome']."</b>";
+                } elseif ($row['raridade'] == "Common") {
+                    echo "<b class='raridade-common'>". $row['nome']."</b>";
+                } 
+            ?> DO BANCO DE DADOS?</h2>
+        <div class="form">
+            <form action="../../Controller/form/tratamento.php" method="post">
+                <input class="dia" type="hidden" name="delete_id_fruta" value="<?= $row['id'] ?>">
+                <br><br>
+                <button class="enviar" type="submit" name="deleted">Deletar</button>
+            </form>
+        </div>
+    </div>
 </div>

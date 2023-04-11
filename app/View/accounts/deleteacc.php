@@ -1,3 +1,12 @@
+<?php   
+    require_once("../../Model/conexao.php");
+    
+    $id = $_GET['id'];
+
+    $sql = $conn->query("SELECT * FROM day WHERE id=$id");
+    $row = $sql->fetch_assoc();
+?>
+
 <head>
      <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +21,7 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
+       
         <style>
             body {
             /* Remova as propriedades de centralização aqui */
@@ -36,20 +46,12 @@
                 align-items: center;
                 border: 1px solid #000;
                 padding: 20px;
-                width: 50rem;
+                width: 89rem;
             }
 
             h2 {
                 text-align: center;
                 margin-right: 3rem;
-            }
-
-            .form {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                text-align: center;
             }
 
             input.dia, button.enviar {
@@ -70,7 +72,7 @@
                 background-color: gray;
             }
 
-            .dia {
+            .dia, textarea {
                 border: 1px solid #000;
                 width: 500px;
                 text-align: center;
@@ -78,32 +80,22 @@
                 font-size: 17px;
             }
 
-            select {
-                height: 2rem;
-            }
-
 
         </style>
 </head>
 
-<div class="side-bar">
-    <?php require_once("../menu.php") ?>
-</div>
-<div class="wrapper">
-    <div class="content">
-        <div class="form">
+<body>
+    <div class="side-bar">
+        <?php require_once("../menu.php") ?>
+    </div>
+    <div class="wrapper">
+        <div class="content">
+            <h2> TEM CERTEZA QUE QUER DELETAR O DIA: <b><?= $row['data'] ?></b> DO BANCO DE DADOS?</h2>
             <form action="../../Controller/form/tratamento.php" method="post">
-                <b>Nome:</b> <br><input class="dia" type="text" name="new_fruta"><br><br>
-                <b>Raridade:</b> <br><select class="dia" name="new_raridade">
-                    <option style="text-align: center;" >Common</option>
-                    <option style="text-align: center;" >Rare</option>
-                    <option style="text-align: center;" >Epic</option>
-                    <option style="text-align: center;" >Legendary</option>
-                    <option style="text-align: center;" >Mythic</option>
-                </select>
-                <br><br><br><br><br><br><br>
-                <button class="enviar" type="submit" name="nova_fruta">Enviar</button>
+                <input class="dia" type="hidden" name="delete_id_dia" value="<?= $row['id'] ?>">
+                <br><br>
+                <button class="enviar" type="submit" name="deleted">Deletar</button>
             </form>
         </div>
     </div>
-</div>
+</body>

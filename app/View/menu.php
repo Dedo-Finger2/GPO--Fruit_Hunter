@@ -13,7 +13,7 @@
             <img src="https://th.bing.com/th/id/R.8f49d363b48781cdcffd1db7fe56b946?rik=HWuvuN4hD7LI3g&pid=ImgRaw&r=0" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-            <a href="#" class="d-block">Antonio Mauricio</a>
+            <a href="#" class="d-block"></a>
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="/fruit_hunter/index.php" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
                     <p>
                         Home
                     </p>
@@ -47,7 +47,7 @@
                 with font-awesome or any other icon font library -->
             <li class="nav-item">
                 <a href="/fruit_hunter/app/View/day/listday.php" class="nav-link">
-                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
                     <p>
                         Day list
                     </p>
@@ -58,7 +58,7 @@
                 with font-awesome or any other icon font library -->
               <li class="nav-item">
                   <a href="/fruit_hunter/app/View/fruit/listfruits.php" class="nav-link">
-                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                      <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
                       <p>
                           Fruit list
                       </p>
@@ -68,10 +68,32 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
               <li class="nav-item">
-                  <a href="/fruit_hunter/app/View/fruit/createfruit.php" class="nav-link">
-                      <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <a href="/fruit_hunter/app/View/accounts/listacc.php" class="nav-link">
+                      <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
                       <p>
-                          Create fruit
+                          Accounts list
+                      </p>
+                  </a>
+              </ul>
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+              <li class="nav-item">
+                  <a href="/fruit_hunter/app/View/fruit/createfruit.php" class="nav-link">
+                      <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
+                      <p>
+                          Create new account
+                      </p>
+                  </a>
+              </ul>
+              <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+              <li class="nav-item">
+                  <a href="/fruit_hunter/app/View/fruit/createfruit.php" class="nav-link">
+                      <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
+                      <p>
+                          Create new fruit
                       </p>
                   </a>
               </ul>
