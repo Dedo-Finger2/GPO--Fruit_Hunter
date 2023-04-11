@@ -1,9 +1,8 @@
 <?php
 
     require_once("../../Model/conexao.php");
-    $id = $_GET['id'];
-
-    $sql = $conn->query("SELECT * FROM account WHERE id=$id");
+    $result = $conn->query("SELECT * FROM fruits");
+    $items = $conn->query("SELECT * FROM account");
 
 ?>
 
@@ -158,7 +157,7 @@
                     ?>
                 </textarea>
                 <br><br>
-                <button class="enviar" type="submit" name="edited_acc">EDIT</button>
+                <button class="enviar" type="submit" name="nova_acc">Enviar</button>
             </form>
         </div>
     </div>

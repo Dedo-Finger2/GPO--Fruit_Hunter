@@ -3,7 +3,7 @@
     
     $id = $_GET['id'];
 
-    $sql = $conn->query("SELECT * FROM day WHERE id=$id");
+    $sql = $conn->query("SELECT * FROM account WHERE id=$id");
     $row = $sql->fetch_assoc();
 ?>
 
@@ -90,11 +90,11 @@
     </div>
     <div class="wrapper">
         <div class="content">
-            <h2> TEM CERTEZA QUE QUER DELETAR O DIA: <b><?= $row['data'] ?></b> DO BANCO DE DADOS?</h2>
+            <h2> TEM CERTEZA QUE QUER DELETAR A CONTA: <b><?= $row['nome'] ?></b> DO BANCO DE DADOS?</h2>
             <form action="../../Controller/form/tratamento.php" method="post">
                 <input class="dia" type="hidden" name="delete_id_dia" value="<?= $row['id'] ?>">
                 <br><br>
-                <button class="enviar" type="submit" name="deleted">Deletar</button>
+                <button class="enviar" type="submit" name="deleted_acc">Deletar</button>
             </form>
         </div>
     </div>

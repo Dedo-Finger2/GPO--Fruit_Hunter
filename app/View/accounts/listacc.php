@@ -196,6 +196,7 @@
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
+                            <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -236,6 +237,7 @@
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
+                            <th>Options</th>
                         </tr>
                     </tfoot>
                 </table>

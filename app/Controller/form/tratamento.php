@@ -1,8 +1,13 @@
 <?php
+    use App\Controller\AccountController;
+    use App\Controller\ControllerAccount;
     use App\Controller\DayController;
     use App\Controller\FruitController;
+    use App\Model\Account;
     include_once("../day.class.php");
     include_once("../fruits.class.php");
+    include_once("../acc.class.php");
+    
     // O tratamento vai fazer verificações e executar comandos do Controller
 
     extract($_POST);
@@ -37,7 +42,11 @@
         $dia = new DayController();
         $dia->editDia($edit_id_dia, $new_day_data, $new_frutas);
         header("Location: ../../View/day/listday.php");
-    }
+    } elseif (isset($nova_acc)) {
+        $conta = new AccountController();
+        $conta->new_acc($acc_nome, $acc_level, $acc_raca, $acc_spins, $acc_frutas, $acc_items, $acc_fruta);
+        header("Location: ../../View/accounts/listacc.php");
+    } elseif (isset())
 
     echo "ta passando";
 

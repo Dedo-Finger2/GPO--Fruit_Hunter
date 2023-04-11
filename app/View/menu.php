@@ -79,7 +79,7 @@
             <!-- Add icons to the links using the .nav-icon class
                 with font-awesome or any other icon font library -->
               <li class="nav-item">
-                  <a href="/fruit_hunter/app/View/fruit/createfruit.php" class="nav-link">
+                  <a href="/fruit_hunter/app/View/accounts/createacc.php" class="nav-link">
                       <i class="fa-solid fa-apple-whole" style="color: #949494;"></i>
                       <p>
                           Create new account
