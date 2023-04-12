@@ -188,16 +188,15 @@
                 <table id="example1" class="table table-bordered table-striped">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>Name</th>
                             <th>Fruit</th>
-                            <th>Level</th>
+                            <th>Options</th>
                             <th>Inventory_items</th>
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
                             <th>Bounty</th>
-                            <th>Options</th>
+                            <th>Level</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -206,23 +205,25 @@
                             {
                         ?>
                                 <tr>
-                                    <td><?= $row['id'] ?></td>
                                     <td><?= $row['nome'] ?></td>
                                     <td><?= $row['atual_fruta'] ?></td>
-                                    <td><?= $row['level'] ?></td>
+                                    <td>
+                                        <a href="deleteacc.php?id=<?= $row['id'] ?>">
+                                            DELETE
+                                        </a> |||
+                                        <a href="editacc.php?id=<?= $row['id'] ?>">
+                                            EDIT
+                                        </a> |||
+                                        <a href="viewacc.php?id=<?= $row['id'] ?>">
+                                            VIEW
+                                        </a>
+                                    </td>
                                     <td><?= $row['items_inv'] ?></td>
                                     <td><?= $row['frutas_inv'] ?></td>
                                     <td><?= $row['spins'] ?></td>
                                     <td><?= $row['raca'] ?></td>
                                     <td><?= $row['bounty'] ?></td>
-                                    <td>
-                                        <a href="deleteacc.php?id=<?= $row['id'] ?>">
-                                            Delete
-                                        </a> |||
-                                        <a href="editacc.php?id=<?= $row['id'] ?>">
-                                            EDIT
-                                        </a>
-                                    </td>
+                                    <td><?= $row['level'] ?></td>
                                 </tr>
                         <?php
                             }
@@ -231,16 +232,15 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                        <th>ID</th>
                             <th>Name</th>
                             <th>Fruit</th>
-                            <th>Level</th>
+                            <th>Options</th>
                             <th>Inventory_items</th>
                             <th>Inventory_fruits</th>
                             <th>Spins</th>
                             <th>Race</th>
                             <th>Bounty</th>
-                            <th>Options</th>
+                            <th>Level</th>
                         </tr>
                     </tfoot>
                 </table>

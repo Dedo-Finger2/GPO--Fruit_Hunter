@@ -1,14 +1,20 @@
-<?php   
+<?php
+    
     require_once("../../Model/conexao.php");
     
     $id = $_GET['id'];
 
-    $sql = $conn->query("SELECT * FROM day WHERE id=$id");
+    $sql = $conn->query("SELECT * FROM account WHERE id='$id'");
     $row = $sql->fetch_assoc();
 
-    $lista = $row['frutas'];
-    $array_frutas = explode(",", $lista);
+    $frutas = $row['frutas_inv'];
+    $array_frutas = explode(",", $frutas);
     $array_frutas = array_filter($array_frutas);
+
+    $items = $row['items_inv'];
+    $array_items = explode(",", $items);
+    $array_items = array_filter($array_items);
+
 
     // Array para armazenar o número de ocorrências de cada valor
     $occurrences_frutas = array();
@@ -45,6 +51,43 @@
         }
     }
 
+    // Array para armazenar o número de ocorrências de cada valor
+    $occurrences_items = array();
+
+    // Loop para contar as ocorrências de cada valor
+    foreach ($array_items as $val) {
+        if (isset($occurrences_items[$val])) {
+            $occurrences_items[$val]++;
+        } else {
+            $occurrences_items[$val] = 1;
+        }
+    }
+
+    // Novo array com valores e contadores
+    $newArray_items = array();
+    foreach ($array_items as $key => $val) {
+        if ($occurrences_items[$val] > 1) {
+            $occurrenceKey = array_search($val, array_slice($array_items, $key+1));
+        if ($occurrenceKey !== false) {
+            $occurrenceKey += $key + 1;
+        if (!in_array($val . ' x' . $occurrences_items[$val], $newArray_items)) {
+                $newArray_items[] = $val . ' x' . $occurrences_items[$val];
+            }
+        } else {
+            $countedVal = $val . ' x' . $occurrences_items[$val];
+            if (!in_array($countedVal, $newArray_items)) {
+                $newArray_items[] = $countedVal;
+            }
+        }
+        } else {
+            if (!in_array($val, $newArray_items)) {
+                $newArray_items[] = $val;
+            }
+        }
+    }
+
+
+
 ?>
 
 <head>
@@ -61,12 +104,7 @@
         <link rel="stylesheet" href="/fruit_hunter/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
         <!-- Theme style -->
         <link rel="stylesheet" href="/fruit_hunter/assets/dist/css/adminlte.min.css">
-        
         <style>
-            body {
-            /* Remova as propriedades de centralização aqui */
-            }
-
             .wrapper {
                 display: flex;
                 justify-content: center;
@@ -75,20 +113,15 @@
                 height: 93vh;
             }
 
-            .side-bar {
-                width: 100%;
-            }
-
+       
             .content {
-                display: flex;
-                flex-direction: row;
+                display: inline-block;
                 justify-content: center;
                 align-items: center;
-                border: 1px solid #000;
+                border: 0px solid #000;
                 padding: 20px;
-                margin-right: 6rem;
-                width: 89rem;
-                height: 800px;
+                width: 90rem;
+                height: 55rem;
             }
 
             h2 {
@@ -96,76 +129,43 @@
                 margin-right: 3rem;
             }
 
-            .form {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                margin-left: 30px;
-                text-align: center;
+            .frutas {
+                display: inline-block;
+                float: left;
             }
 
-            input, textarea, button.enviar {
-                margin: 10px;
-                padding: 10px;
-                font-size: 16px;
+            .items {
+                display: inline-block;
+                float: right;
             }
 
-            button.enviar {
-                background-color: #000;
-                color: #fff;
-                border: none;
-                cursor: pointer;
-                width: 150px;
-            }
-
-            button.enviar:hover {
-                background-color: gray;
-            }
-
-            input, textarea {
-                border: 1px solid #000;
-                width: 500px;
-                text-align: center;
-                font-weight: bold;
-                font-size: 17px;
-            }
-
-            textarea {
-                height: 15rem;
-            }
-
-            .fruta {
-                text-align: center;
-                font-size: 20px;
-                margin-bottom: 5px;
-            }
 
         </style>
 </head>
-<body>
-    <div class="side-bar">
-        <?php require_once("../menu.php") ?>
-    </div>
-    <div class="wrapper">
-        <div class="content">
-            <h2>EDITANDO O DIA: <b><?= $row['data'] ?></b> COM AS FRUTAS: 
-            <b><?php  
-                    foreach($newArray_frutas as $item)
-                    {
-                        echo "<p class='fruta'>- $item</p>";
-                    }
-                ?>
-            </b></h2>
-            <div class="form">
-                <form action="../../Controller/form/tratamento.php" method="post">
-                    <b>Data:</b> <br><input class="data" type="text" name="new_day_data" value="<?= $row['data'] ?>"><br><br>
-                    <b>Frutas:</b> <br><textarea name="new_frutas"><?= $row['frutas'] ?></textarea>
-                    <input type="hidden" name="edit_id_dia" value="<?= $row['id'] ?>">
-                    <br><br>
-                    <button class="enviar" type="submit" name="edited">EDIT</button>
-                </form>
-            </div>
+
+<div class="side-bar">
+    <?php require_once("../menu.php") ?>
+</div>
+<div class="wrapper">
+    <div class="content">
+        <h2><?= $row['nome'] ?></h2>
+        <div class="frutas">
+            <h2>Frutas</h2><br>
+            <?php
+                foreach($newArray_frutas as $item)
+                {
+                    echo "<p>- $item</p>";
+                }
+            ?>
+        </div>
+        <div class="items">
+            <h2>Items</h2><br>
+            <?php
+                foreach($newArray_items as $item)
+                {
+                    echo "<p>- $item</p>";
+                }
+            ?>
         </div>
     </div>
-</body>
+</div>

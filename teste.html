@@ -1,1 +1,34 @@
-$new_nome, $new_level, $new_raca, $new_spins, $new_frutas_inv, $new_items_inv, $new_fruta
+// Array para armazenar o número de ocorrências de cada valor
+    $occurrences_items = array();
+
+    // Loop para contar as ocorrências de cada valor
+    foreach ($array_items as $val) {
+        if (isset($occurrences_items[$val])) {
+            $occurrences_items[$val]++;
+        } else {
+            $occurrences_items[$val] = 1;
+        }
+    }
+
+    // Novo array com valores e contadores
+    $newArray_items = array();
+    foreach ($array_items as $key => $val) {
+        if ($occurrences_items[$val] > 1) {
+            $occurrenceKey = array_search($val, array_slice($array_items, $key+1));
+        if ($occurrenceKey !== false) {
+            $occurrenceKey += $key + 1;
+        if (!in_array($val . ' x' . $occurrences_items[$val], $newArray_items)) {
+                $newArray_items[] = $val . ' x' . $occurrences_items[$val];
+            }
+        } else {
+            $countedVal = $val . ' x' . $occurrences_items[$val];
+            if (!in_array($countedVal, $newArray_items)) {
+                $newArray_items[] = $countedVal;
+            }
+        }
+        } else {
+            if (!in_array($val, $newArray_items)) {
+                $newArray_items[] = $val;
+            }
+        }
+    }

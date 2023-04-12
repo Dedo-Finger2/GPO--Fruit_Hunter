@@ -188,7 +188,7 @@
 								<table id="example1" class="table table-bordered table-striped">
 										<thead>
 												<tr>
-														<th>ID</th>
+														
 														<th>Date</th>
 														<th>Fruits</th>
 														<th>Options</th>
@@ -200,7 +200,7 @@
 														{
 												?>
 																<tr>
-																		<td><?= $row['id'] ?></td>
+																	
 																		<td><?= $row['data'] ?></td>
 																		<td><?= $row['frutas'] ?></td>
 																		<td>
@@ -219,7 +219,7 @@
 										</tbody>
 										<tfoot>
 												<tr>
-														<th>ID</th>
+													
 														<th>Date</th>
 														<th>Fruits</th>
 														<th>Options</th>
